@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="Models\" />
+    <ProjectReference Include="..\OrgChart.Data\OrgChart.Data.csproj" />
+    <ProjectReference Include="..\OrgChart.Helper\OrgChart.Helper.csproj" />
   </ItemGroup>
 
 </Project>

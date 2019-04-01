@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OrgChart.Bll;
+using OrgChart.Bll.Interfaces;
 using OrgChart.Data;
 using OrgChart.Data.Repository.Interfaces;
 using OrgChart.Helper;
@@ -38,7 +40,7 @@ namespace OrgChart.API.Extensions
         /// <param name="services">The service collection.</param>
         public static void ConfigureBll(this IServiceCollection services)
         {
-
+            services.AddScoped<IOrgChart, OrgChartBll>();
         }
 
         /// <summary>
