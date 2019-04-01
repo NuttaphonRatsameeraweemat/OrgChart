@@ -28,7 +28,7 @@ namespace OrgChart.API.Extensions
         public static void ConfigureRepository(this IServiceCollection services, IConfiguration Configuration)
         {
             services.AddEntityFrameworkSqlServer()
-             .AddDbContext<DbContext>(options =>
+             .AddDbContext<DSDBContext>(options =>
               options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
 
             services.AddTransient<IUnitOfWork, OcUnitOfWork>();
