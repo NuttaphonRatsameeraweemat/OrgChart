@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Z.EntityFramework.Plus;
 
 namespace OrgChart.Data.Repository.EF
 {
@@ -70,6 +71,21 @@ namespace OrgChart.Data.Repository.EF
             params string[] includeProperties)
         {
             return GetQueryable(filter, orderBy, includeProperties).ToList();
+        }
+
+        /// <summary>
+        /// Gets poco entity from cache representing data in database.
+        /// </summary>
+        /// <param name="filter">The filter data.</param>
+        /// <param name="orderBy">The ordering data.</param>
+        /// <param name="includeProperties">The collection of property names of related poco entity for including data.</param>
+        /// <returns>Collection of data as IEnumerable of poco entity.</returns>
+        public IEnumerable<TEntity> GetCache(
+            Expression<Func<TEntity, bool>> filter = null,
+            Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
+            params string[] includeProperties)
+        {
+            return GetQueryable(filter, orderBy, includeProperties).FromCache(typeof(TEntity).Name).ToList();
         }
 
         /// <summary>
