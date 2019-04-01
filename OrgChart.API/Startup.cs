@@ -43,9 +43,6 @@ namespace OrgChart.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseAuthentication();
-
             app.ConfigureMiddleware();
 
             app.ConfigureSwagger();

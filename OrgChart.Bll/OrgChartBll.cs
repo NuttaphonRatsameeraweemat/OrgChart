@@ -1,7 +1,10 @@
 ﻿using OrgChart.Bll.Interfaces;
 using OrgChart.Bll.Models;
+using OrgChart.Data.Pocos;
 using OrgChart.Data.Repository.Interfaces;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrgChart.Bll
 {
@@ -40,6 +43,15 @@ namespace OrgChart.Bll
         public OrgChartModel Get(string empNo)
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Get all employee (Testing Method).
+        /// </summary>
+        /// <returns></returns>
+        public List<Hremployee> GetEmployee()
+        {
+            return _unitOfWork.GetRepository<Hremployee>().GetCache().ToList();
         }
 
         #endregion

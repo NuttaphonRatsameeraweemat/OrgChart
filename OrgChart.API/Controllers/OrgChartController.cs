@@ -38,6 +38,13 @@ namespace OrgChart.API.Controllers
             return Ok(_orgChart.Get(empNo));
         }
 
+        [HttpGet]
+        [Route("GetEmployee")]
+        public IActionResult GetEmployee()
+        {
+            return Ok(_orgChart.GetEmployee());
+        }
+
         #endregion
 
     }
