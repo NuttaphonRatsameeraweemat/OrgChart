@@ -32,7 +32,10 @@ namespace OrgChart.API
             services.ConfigureLoggerService();
             services.ConfigureCors();
 
-            services.AddMvc();
+            services.AddMvc(opt =>
+            {
+                opt.UseApiGlobalConfigRoutePrefix(new RouteAttribute("api"));
+            });
             services.AddSwagger();
         }
 

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -41,6 +43,16 @@ namespace OrgChart.API.Extensions
         public static void ConfigureBll(this IServiceCollection services)
         {
             services.AddScoped<IOrgChart, OrgChartBll>();
+        }
+
+        /// <summary>
+        /// Config Api Routes Prefix.
+        /// </summary>
+        /// <param name="opts">The MvcOptions.</param>
+        /// <param name="routeAttribute">The IRouteTemplateProvider.</param>
+        public static void UseApiGlobalConfigRoutePrefix(this MvcOptions opts, IRouteTemplateProvider routeAttribute)
+        {
+            opts.Conventions.Insert(0, new ApiGlobalRoutePrefix(routeAttribute));
         }
 
         /// <summary>

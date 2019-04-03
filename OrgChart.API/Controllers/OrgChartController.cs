@@ -3,7 +3,7 @@ using OrgChart.Bll.Interfaces;
 
 namespace OrgChart.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class OrgChartController : ControllerBase
     {
