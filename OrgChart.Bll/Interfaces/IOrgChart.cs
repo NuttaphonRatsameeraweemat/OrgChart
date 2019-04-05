@@ -8,7 +8,7 @@ namespace OrgChart.Bll.Interfaces
 {
     public interface IOrgChart
     {
-        OrgChartModel Get(string empNo);
+        List<OrgChartModel> Get(string empNo);
         List<Hremployee> GetEmployee();
     }
 }
