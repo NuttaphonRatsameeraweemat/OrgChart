@@ -84,14 +84,7 @@ namespace OrgChart.Data.Repository.EF
             {
                 throw new ObjectDisposedException(this.GetType().FullName);
             }
-
-            try
-            {
-                return _context.SaveChanges();
-            }
-            finally
-            {
-            }
+            return _context.SaveChanges();
         }
 
         /// <summary>
@@ -100,6 +93,7 @@ namespace OrgChart.Data.Repository.EF
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         /// <summary>

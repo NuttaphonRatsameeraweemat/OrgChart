@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 
 namespace OrgChart.API
 {
-    public class Program
+    public static class Program
     {
         public static void Main(string[] args)
         {

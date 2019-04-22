@@ -57,7 +57,7 @@ namespace OrgChart.API
             catch (Exception ex)
             {
                 _logger.LogError(ex, "The Errors Message : ");
-                await HandleExceptionAsync(httpContext, ex);
+                await HandleExceptionAsync(httpContext);
             }
             EndInvoke(httpContext);
         }
@@ -87,7 +87,7 @@ namespace OrgChart.API
         /// <param name="httpContext"></param>
         /// <param name="exception"></param>
         /// <returns></returns>
-        private static Task HandleExceptionAsync(HttpContext httpContext, Exception exception)
+        private static Task HandleExceptionAsync(HttpContext httpContext)
         {
             httpContext.Response.ContentType = "application/json";
             httpContext.Response.StatusCode = (int)System.Net.HttpStatusCode.InternalServerError;
